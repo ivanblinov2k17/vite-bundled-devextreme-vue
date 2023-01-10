@@ -1,5 +1,10 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import { DxDateBox } from '../bundles/devextreme-vue-bundle.mjs'
+import { ref } from 'vue'
+
+const startValue =ref(new Date())
+const endValue = ref(new Date())
 </script>
 
 <template>
@@ -12,6 +17,15 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+
+  <DxDateBox
+      v-model:value="startValue"
+      v-model:max="endValue"
+  />
+  <DxDateBox
+      v-model:value="endValue"
+      v-model:min="startValue"
+  />
 </template>
 
 <style scoped>
